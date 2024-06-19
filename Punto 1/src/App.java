@@ -21,7 +21,7 @@ public class App extends JFrame implements ActionListener{
     JTextField campo1, campo2;
     JButton boton1, boton2;
     ArrayList<String> listStudents = new ArrayList<String>();
-    JList <String> lista1;
+    
 
     public void averageCal(){
         float x = 0;
@@ -59,7 +59,7 @@ public class App extends JFrame implements ActionListener{
     public App(){
         setTitle("Sistema de calificaciones");
         contenedor = getContentPane();
-        FlowLayout layout = new FlowLayout();
+        FlowLayout layout = new FlowLayout(FlowLayout.LEADING);
         contenedor.setLayout(layout);
 
         JLabel label = new JLabel("Nombre del estudiante: ");
@@ -76,7 +76,7 @@ public class App extends JFrame implements ActionListener{
 
         boton1 = new JButton("Agregar");
         boton1.addActionListener(this);
-        contenedor.add(boton1);
+        contenedor.add(boton1, FlowLayout.RIGHT);
 
         boton2 = new JButton("Listar");
         boton2.addActionListener(this);
@@ -92,6 +92,7 @@ public class App extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        JList <String> lista1;
         averageCal();
         if(e.getSource() == boton1){
             adding(campo2.getText()); 
