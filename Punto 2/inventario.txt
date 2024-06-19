@@ -1,0 +1,21 @@
+P005: Aire acondicionado portatil: 15
+P016: Altavoces Bluetooth: 110
+P004: Microondas digital: 75
+P015: Proyector HD: 35
+P007: Smartphone 5G: 200
+P018: Router Wi-Fi: 85
+P006: Computadora portatil: 100
+P017: Camara de seguridad: 50
+P001: Televisor LED 42": 50
+P012: Monitor 24": 70
+P011: Silla ergonomica: 80
+P003: Refrigerador doble puerta: 20
+P014: Mouse inalambrico: 90
+P002: Lavadora automatica: 30
+P013: Teclado mecanico: 120
+P009: Impresora multifuncional: 40
+P008: Tablet Android: 150
+P019: Smartwatch: 95
+P010: Escritorio de oficina: 60
+P021: Consola XBOX Series X: 20
+P020: Consola PS5: 20
