@@ -68,7 +68,7 @@ public class App extends JFrame implements ActionListener{
         campo1 = new JTextField(10);
         contenedor.add(campo1);
 
-        JLabel label2 = new JLabel("Salificación del estudiante: ");
+        JLabel label2 = new JLabel("Calificación del estudiante: ");
         contenedor.add(label2);
 
         campo2 = new JTextField(10);
