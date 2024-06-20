@@ -1,23 +1,30 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+// Definición de la clase principal de la aplicación
 public class App {
+    // Instancia de Inventario para gestionar los productos
     private static Inventario inventario = new Inventario();
+    // Scanner para leer la entrada del usuario
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         try {
+            // Intenta cargar el inventario desde un archivo al inicio
             inventario.cargarInventario("inventario.txt");
         } catch (Exception e) {
             System.out.println("Error al cargar el inventario inicial: " + e.getMessage());
         }
 
+        // Bucle para mantener el programa ejecutándose hasta que el usuario decida salir
         boolean continuar = true;
 
         while (continuar) {
+            // Muestra el menú de opciones al usuario
             mostrarMenu();
             int opcion = -1;
             try {
+                // Lee la opción seleccionada por el usuario
                 opcion = scanner.nextInt();
                 scanner.nextLine(); // Consumir el salto de línea
             } catch (InputMismatchException e) {
@@ -26,6 +33,7 @@ public class App {
                 continue;
             }
 
+            // Ejecuta la acción correspondiente a la opción seleccionada
             switch (opcion) {
                 case 1:
                     agregarProducto();
@@ -44,7 +52,7 @@ public class App {
                     break;
                 case 6:
                     guardarInventario();
-                    continuar = false;
+                    continuar = false; // Finaliza el bucle y cierra la aplicación
                     break;
                 default:
                     System.out.println("Opción no válida. Intente de nuevo.");
@@ -55,27 +63,34 @@ public class App {
 
     }
 
-
+    // Método para mostrar el menú de opciones al usuario
     private static void mostrarMenu() {
-        System.out.println("\nSistema de Gestión de Inventario");
+        System.out.println("------------------------------------");
+        System.out.println("Sistema de Gestión de Inventario");
+        System.out.println("------------------------------------");
         System.out.println("1. Agregar producto");
         System.out.println("2. Actualizar producto");
         System.out.println("3. Eliminar producto");
         System.out.println("4. Buscar producto");
         System.out.println("5. Listar productos");
         System.out.println("6. Guardar inventario y salir");
-        System.out.print("Seleccione una opción: ");
+        System.out.println("------------------------------------");
+        System.out.print("Seleccione una opción:\n");
     }
 
-
+    // Método para agregar un producto al inventario
     private static void agregarProducto() {
         try {
-            System.out.print("Ingrese el código del producto: ");
+            System.out.println("------------------------------------");
+            System.out.print("Ingrese el código del producto:\n");
             String codigo = scanner.nextLine();
-            System.out.print("Ingrese el nombre del producto: ");
+            System.out.println("------------------------------------");
+            System.out.print("Ingrese el nombre del producto:\n");
             String nombre = scanner.nextLine();
-            System.out.print("Ingrese la cantidad: ");
+            System.out.println("------------------------------------");
+            System.out.print("Ingrese la cantidad:\n");
             int cantidad = scanner.nextInt();
+            System.out.println("------------------------------------");
             scanner.nextLine(); // Consumir el salto de línea
 
             inventario.agregarProducto(codigo, nombre, cantidad);
@@ -87,15 +102,19 @@ public class App {
         }
     }
 
-
+    // Método para actualizar un producto existente en el inventario
     private static void actualizarProducto() {
         try {
-            System.out.print("Ingrese el código del producto: ");
+            System.out.println("------------------------------------");
+            System.out.print("Ingrese el código del producto:\n");
             String codigo = scanner.nextLine();
-            System.out.print("Ingrese el nuevo nombre: ");
+            System.out.println("------------------------------------");
+            System.out.print("Ingrese el nuevo nombre:\n");
             String nombre = scanner.nextLine();
-            System.out.print("Ingrese la nueva cantidad: ");
+            System.out.println("------------------------------------");
+            System.out.print("Ingrese la nueva cantidad:\n");
             int cantidad = scanner.nextInt();
+            System.out.println("------------------------------------");
             scanner.nextLine(); // Consumir el salto de línea
 
             inventario.actualizarProducto(codigo, nombre, cantidad);
@@ -107,10 +126,12 @@ public class App {
         }
     }
 
-
+    // Método para eliminar un producto del inventario
     private static void eliminarProducto() {
-        System.out.print("Ingrese el código del producto a eliminar: ");
+        System.out.println("------------------------------------");
+        System.out.print("Ingrese el código del producto a eliminar:\n");
         String codigo = scanner.nextLine();
+        System.out.println("------------------------------------");
         try {
             inventario.eliminarProducto(codigo);
         } catch (Exception e) {
@@ -118,14 +139,18 @@ public class App {
         }
     }
 
-
+    // Método para buscar un producto en el inventario
     private static void buscarProducto() {
-        System.out.print("Ingrese el código del producto a buscar: ");
+        System.out.println("------------------------------------");
+        System.out.print("Ingrese el código del producto a buscar:\n");
         String codigo = scanner.nextLine();
+        System.out.println("------------------------------------");
         try {
             Producto producto = inventario.buscarProducto(codigo);
             if (producto != null) {
+                System.out.println("------------------------------------\n");
                 System.out.println("Código: " + producto.getCodigo() + ", Nombre: " + producto.getNombre() + ", Cantidad: " + producto.getCantidad());
+                System.out.println("\n------------------------------------");
             } else {
                 System.out.println("Producto no encontrado.");
             }
@@ -134,16 +159,18 @@ public class App {
         }
     }
 
-
+    // Método para listar todos los productos en el inventario
     private static void listarProductos() {
         try {
+            System.out.println("------------------------------------");
             inventario.listarProductos();
+            System.out.println("----------------------------------------------------------------\n");
         } catch (Exception e) {
             System.out.println("Error al listar productos: " + e.getMessage());
         }
     }
 
-
+    // Método para guardar el inventario en un archivo y finalizar la aplicación
     private static void guardarInventario() {
         try {
             inventario.guardarInventario("inventario.txt");
