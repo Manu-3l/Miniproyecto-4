@@ -69,10 +69,7 @@ public class App extends JFrame implements ActionListener{
         contenedor = getContentPane(); // Obtiene el contenedor principal.
         FlowLayout layout = new FlowLayout(FlowLayout.LEADING); // Crea un layout de flujo.
         contenedor.setLayout(layout); // Establece el layout al contenedor.
-        setTitle("Sistema de calificaciones");
-        contenedor = getContentPane();
-        FlowLayout layout = new FlowLayout(FlowLayout.LEADING);
-        contenedor.setLayout(layout);
+        
 
         // Añade los componentes de la interfaz gráfica al contenedor.
         JLabel label = new JLabel("Nombre del estudiante: ");
@@ -117,7 +114,7 @@ public class App extends JFrame implements ActionListener{
         }else if(e.getSource() == boton2){
             // Si se presiona el botón de listar, agrega a la lista los estudiantes que están por encima del promedio.
             for(Entry<String, Float> entry : scores.entrySet()){
-                if(isAverage(entry.getKey()) == true){
+                if(isAverage(entry.getKey()) == true && !listStudents.contains(entry.getKey())){
                     listStudents.add(entry.getKey());                    
                 }
                     
