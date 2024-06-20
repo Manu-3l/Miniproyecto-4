@@ -54,7 +54,7 @@ public class Inventario {
                 productos.get(codigo).setCantidad(cantidad);
                 System.out.println("Producto actualizado exitosamente.");
             } else {
-                System.out.println("Producto con código " + codigo + " no encontrado.");
+                System.out.println("Producto con código " + codigo + " no fue encontrado.");
             }
         } catch (Exception e) {
             System.out.println("Error al actualizar producto: " + e.getMessage());
@@ -124,7 +124,6 @@ public class Inventario {
                     productos.put(codigo, new Producto(codigo, nombre, cantidad));
                 }
             }
-            System.out.println("Inventario cargado exitosamente desde " + nombreArchivo);
         } catch (IOException e) {
             System.out.println("Error al cargar el inventario: " + e.getMessage());
         } catch (NumberFormatException e) {

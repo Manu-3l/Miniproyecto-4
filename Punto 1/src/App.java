@@ -22,7 +22,7 @@ public class App extends JFrame implements ActionListener{
     JTextField campo1, campo2;
     JButton boton1, boton2;
     ArrayList<String> listStudents = new ArrayList<String>();
-    
+ 
     // Método para calcular el promedio de las calificaciones.
     public void averageCal(){
         float x = 0;
@@ -69,6 +69,10 @@ public class App extends JFrame implements ActionListener{
         contenedor = getContentPane(); // Obtiene el contenedor principal.
         FlowLayout layout = new FlowLayout(FlowLayout.LEADING); // Crea un layout de flujo.
         contenedor.setLayout(layout); // Establece el layout al contenedor.
+        setTitle("Sistema de calificaciones");
+        contenedor = getContentPane();
+        FlowLayout layout = new FlowLayout(FlowLayout.LEADING);
+        contenedor.setLayout(layout);
 
         // Añade los componentes de la interfaz gráfica al contenedor.
         JLabel label = new JLabel("Nombre del estudiante: ");
@@ -106,6 +110,7 @@ public class App extends JFrame implements ActionListener{
         averageCal(); // Calcula el promedio de las calificaciones.
         
         // Si se presiona el botón de agregar.
+        averageCal();
         if(e.getSource() == boton1){
             adding(campo2.getText()); 
             
