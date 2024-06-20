@@ -12,7 +12,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class App extends JFrame implements ActionListener{
-
+    // Se usó el metodo de tablas Hash en este ejercicio usando el nombre como
+    // codigo unico o llave, es mas probable que existan 2 o mas personas con la misma nota
+    // que 2 o mas personas con el mismmo nombre.
+    // Mapa para almacenar los nombres de los estudiantes y sus calificaciones.
     HashMap<String,Float> scores = new HashMap<String,Float>();
     float average = 0;
 
@@ -112,7 +115,7 @@ public class App extends JFrame implements ActionListener{
     }
 
     public static void main(String[] args) throws Exception {
-        App app = new App();
+        new App();
     }
 
 }

@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class Inventario {
+    // Se utilizo nuevamente el metodo de tablas hash para minimizar el tiempo de busqueda
+    // dandole a cada producto un codigo único como llave que lo identifique 
+    // Mapa para almacenar productos con su código como clave
     private HashMap<String, Producto> productos;
 
     public Inventario() {
